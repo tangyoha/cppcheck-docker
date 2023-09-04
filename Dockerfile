@@ -1,4 +1,4 @@
-FROM alpine
+FROM python:alpine
 
 MAINTAINER Neszt Tibor <tibor@neszt.hu>
 
@@ -6,7 +6,7 @@ ARG SOURCE_BRANCH
 
 RUN \
 	T="$(date +%s)" && \
- 	apk add --no-cache cmake make libstdc++ g++ git build-base  python3 && \
+ 	apk add --no-cache cmake make libstdc++ g++ git build-base && \
 	apk add --no-cache -t .required_apks pcre-dev && \
 	mkdir -p /usr/src /src && cd /usr/src && \
 	git clone https://github.com/danmar/cppcheck.git && \
